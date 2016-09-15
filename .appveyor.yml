@@ -5,15 +5,17 @@ configuration:
 - Debug
 platform:
 - x64
-- Win32
+- x86
 clone_depth: 10
 build:
   project: openthread.sln
   verbosity: minimal
 after_build:
+- cmd: if %Platform%=x86 set Platform=Win32
 - cmd: echo %Platform%
 - cmd: echo %cd%
 - cmd: dir build\bin\
+
 - cmd: dir build\bin\%Platform%\%Configuration%\dll\
 
 test:
