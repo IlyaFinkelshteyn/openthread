@@ -12,7 +12,11 @@ build:
   verbosity: minimal
 after_build:
 - cmd: echo %cd%
+- cmd: dir build\bin\
 - cmd: dir build\bin\%Platform%\%Configuration%\dll\
 
 test:
   assemblies: build\bin\$(Platform)\$(Configuration)\dll\UnitTests.dll
+
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
