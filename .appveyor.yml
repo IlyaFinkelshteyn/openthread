@@ -5,7 +5,7 @@ configuration:
 - Debug
 platform:
 - x64
-- x86
+- Win32
 clone_depth: 10
 build:
   project: openthread.sln
