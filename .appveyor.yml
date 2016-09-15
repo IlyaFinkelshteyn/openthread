@@ -11,6 +11,7 @@ build:
   project: openthread.sln
   verbosity: minimal
 after_build:
+- cmd: echo %Platform%
 - cmd: echo %cd%
 - cmd: dir build\bin\
 - cmd: dir build\bin\%Platform%\%Configuration%\dll\
