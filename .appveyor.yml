@@ -11,8 +11,8 @@ build:
   project: openthread.sln
   verbosity: minimal
 after_build:
- - cmd: %cd%
- - cmd: dir build\bin\%Platform%\%Configuration%\dll\
+- cmd: echo %cd%
+- cmd: dir build\bin\%Platform%\%Configuration%\dll\
 
 test:
   assemblies: build\bin\$(Platform)\$(Configuration)\dll\UnitTests.dll
